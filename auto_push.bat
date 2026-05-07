@@ -6,9 +6,13 @@ cd /d "C:\Users\ishar\OneDrive\Documents\webdev"
 
 git add .
 
-git commit -m "Auto update"
+git diff --cached --quiet
+if %errorlevel%==0 goto skip
 
+git commit -m "Auto update"
 git push origin main
+
+:skip
 
 timeout /t 60
 
